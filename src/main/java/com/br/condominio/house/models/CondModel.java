@@ -1,12 +1,15 @@
 package com.br.condominio.house.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -26,6 +29,9 @@ public class CondModel implements Serializable {
     @NotNull
     private long age;
     
+    @OneToMany(mappedBy = "proprietario")
+    private List<CarsModel> carros = new ArrayList<>();
+
     public CondModel() {
     }
     
@@ -66,6 +72,10 @@ public class CondModel implements Serializable {
 
     public void setAge(long age) {
         this.age = age;
+    }
+
+    public List<CarsModel> getCarros() {
+        return carros;
     }
 
     @Override

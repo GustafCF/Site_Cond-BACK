@@ -38,7 +38,7 @@ public class FileStorageService {
 
         try{
             if(fileName.contains("..")){
-                throw new FileStorageException("Sorry! Filename contains invalid oath sequence " + fileName);
+                throw new FileStorageException("Sorry! Filename contains invalid path sequence " + fileName);
             }
 
             Path targetLocation = this.fileStorageLocation.resolve(fileName);
